@@ -1,12 +1,14 @@
 
-#include "font.h"
-#include "sys.h"
+#include "N76E003.h"
+#include "SFR_Macro.h"
+#include "define.h"
+#include "common.h"
+#include "Delay.h"
+
+//#include "font.h"
+//#include "sys.h"
 #include "lcd.h"
 /******************************************************
-中景园电子淘宝店铺连接：https://shop73023976.taobao.com/
-接线方式
-特别说明：由于生产时间丝印印刷偏移了一个管脚；大家在使用的特别注意一下
-顺序不要接反了；给大家造成不便，非常抱歉
 GND=GND
 VCC=3.3V
 P00=CLK
@@ -31,6 +33,8 @@ sbit bit3=bitdata^3;
 sbit bit2=bitdata^2;
 sbit bit1=bitdata^1;
 sbit bit0=bitdata^0;
+
+
 void LCD_Writ_Bus(char da)   //串行数据写入
 {	
 	bitdata=da;
@@ -43,21 +47,25 @@ void LCD_Writ_Bus(char da)   //串行数据写入
 	LCD_SDI=bit1;LCD_SCK=0;LCD_SCK=1;
 	LCD_SDI=bit0;LCD_SCK=0;LCD_SCK=1; 
 } 
+
 void LCD_WR_DATA8(char da) //发送数据-8位参数
-{LCD_CS1=0;
+{
+	LCD_CS1=0;
     LCD_DC=1;
 	LCD_Writ_Bus(da); 
-LCD_CS1=1;	
+	LCD_CS1=1;	
 }  
  void LCD_WR_DATA(int da)
-{LCD_CS1=0;
+{
+	LCD_CS1=0;
     LCD_DC=1;
 	LCD_Writ_Bus(da>>8);
     LCD_Writ_Bus(da);
 	LCD_CS1=1;
 }	  
 void LCD_WR_REG(char da)	 
-{	LCD_CS1=0;
+{
+	LCD_CS1=0;
     LCD_DC=0;
 	LCD_Writ_Bus(da);
 	LCD_CS1=1;
@@ -84,6 +92,8 @@ void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2
 
    LCD_WR_REG(0x2C);					 						 
 }
+
+
 void Lcd_Init(void)
 {//LCD_BLK=1;
 
@@ -239,7 +249,8 @@ void LCD_Clear(u16 Color)
 void showhanzi(unsigned int x,unsigned int y,unsigned char index)	
 {  
 	unsigned char i,j;
-	unsigned char *temp=hanzi;    
+	//unsigned char *temp=hanzi;    
+	unsigned char *temp=0;  
     Address_set(x,y,x+31,y+31); //设置区域      
 	temp+=index*128;	
 	for(j=0;j<128;j++)
@@ -383,7 +394,7 @@ void LCD_ShowChar(u16 x,u16 y,u8 num,u8 mode)
 	{
 		for(pos=0;pos<16;pos++)
 		{ 
-			temp=asc2_1608[(u16)num*16+pos];		 //调用1608字体
+			//temp=asc2_1608[(u16)num*16+pos];		 //调用1608字体
 			for(t=0;t<8;t++)
 		    {                 
 		        if(temp&0x01)POINT_COLOR=colortemp;
@@ -399,7 +410,7 @@ void LCD_ShowChar(u16 x,u16 y,u8 num,u8 mode)
 	{
 		for(pos=0;pos<16;pos++)
 		{
-		    temp=asc2_1608[(u16)num*16+pos];		 //调用1608字体
+		    //temp=asc2_1608[(u16)num*16+pos];		 //调用1608字体
 			for(t=0;t<8;t++)
 		    {                 
 		        if(temp&0x01)LCD_DrawPoint(x+t,y+pos);//画一个点     

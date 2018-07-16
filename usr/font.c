@@ -1,5 +1,11 @@
+
+#include "N76E003.h"
+#include "SFR_Macro.h"
+#include "define.h"
+#include "common.h"
+#include "Delay.h"
 #include "font.h"
-#include "sys.h"
+//#include "sys.h"
 
 u8 code image[]={ /* 0X00,0X10,0X28,0X00,0X28,0X00,0X01,0X1B,*/
 0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,0XFF,

@@ -1,13 +1,15 @@
-#include <reg51.h>
-#include <intrins.h>
+//#include <reg51.h>
+//#include <intrins.h>
+#include "N76E003.h"
+#include "SFR_Macro.h"
+#include "define.h"
+#include "common.h"
+#include "Delay.h"
+
 #include "font.h"
-#include "sys.h"
+//#include "sys.h"
 #include "lcd.h"
 /******************************************************
-中景园电子淘宝店铺连接：https://shop73023976.taobao.com/
-接线方式
-特别说明：由于生产时间丝印印刷偏移了一个管脚；大家在使用的特别注意一下
-顺序不要接反了；给大家造成不便，非常抱歉
 GND=GND
 VCC=3.3V
 P00=CLK
@@ -35,9 +37,10 @@ void CL_Mem(void)
 	  }
 
 }
+
 void GBZK_ROMOUTSET(void)		//字库输出设置
 {		
-	  	 ;
+	  ;
 
 }
 
@@ -111,7 +114,7 @@ void get_n_bytes_data_from_ROM(unsigned char  AddrHigh,unsigned char  AddrMid,un
 	//ZK_CS2=0; //字库片选
   	LCD_SCK=0;  //字库时钟拉低
    	ZK_CS2=1;//取消字库片选
-		ZK_CS2=0; //字库片选
+	ZK_CS2=0; //字库片选
   	LCD_SCK=0;  //字库时钟拉低
 
 
@@ -509,6 +512,6 @@ void Display_Asc( unsigned char zk_num,unsigned int x, unsigned int y )
 		}
 	
 	 }
-			 }break;   //  16x32 ASCII
-			}
+	 }break;   //  16x32 ASCII
+	}
 }
