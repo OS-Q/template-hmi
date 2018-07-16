@@ -22,14 +22,16 @@ P06=CS2
 #define LCD_W 128
 #define LCD_H 160
 
-sbit LCD_CS1    =P0^4;     //片选	
+sbit LCD_CS1    =P0^4;    //片选	
 sbit LCD_DC     =P0^3;	  //数据/命令切换
 sbit LCD_SDI    =P0^1;	  //数据
 sbit LCD_SCK    =P0^0;	  //时钟
-sbit LCD_REST   =P0^2;	  //复位 
+//sbit LCD_REST   =P0^2;	  //复位 
+sbit LCD_REST   =P0^5;	  //复位 
 
-sbit ZK_MISO    =P0^5;	  //时钟
+sbit ZK_MISO    =P0^7;	  //时钟
 sbit ZK_CS2   =P0^6;	  //复位 
+
 extern  u16 BACK_COLOR, POINT_COLOR;   //背景色，画笔色
 
 void Lcd_Init(void); 

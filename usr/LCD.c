@@ -20,10 +20,10 @@ BLK为LCD背光控制管脚，低电平关闭背光，高电平打开；默认可以不接打开背光
 ////////////////////////以上是LCD工作所需要的/////////////////////////////////////
 P05=FSO
 P06=CS2
-
 ******************************************************/
 
 u16 BACK_COLOR, POINT_COLOR;   //背景色，画笔色
+
 unsigned char bdata bitdata;
 sbit bit7=bitdata^7;
 sbit bit6=bitdata^6;
@@ -100,13 +100,13 @@ void Lcd_Init(void)
 //调用一次这些函数，免得编译的时候提示警告
    	
 	
-	   LCD_WR_REG_DATA(0,0);
-	   LCD_ShowString(0,0," ");
-	   LCD_ShowNum(0,0,0,0);
-	   LCD_Show2Num(0,0,0,0);
-	   LCD_DrawPoint_big(0,0);
-	   LCD_DrawRectangle(0,0,0,0);
-	   Draw_Circle(0,0,0);
+//	   LCD_WR_REG_DATA(0,0);
+//	   LCD_ShowString(0,0," ");
+//	   LCD_ShowNum(0,0,0,0);
+//	   LCD_Show2Num(0,0,0,0);
+//	   LCD_DrawPoint_big(0,0);
+//	   LCD_DrawRectangle(0,0,0,0);
+//	   Draw_Circle(0,0,0);
  	 
 	LCD_REST=0;
 	delayms(20);

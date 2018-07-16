@@ -1,14 +1,13 @@
-//#include <reg51.h>
-//#include <intrins.h>
-
 #include "N76E003.h"
 #include "SFR_Macro.h"
 #include "define.h"
 #include "common.h"
 #include "Delay.h"
+
 //#include "sys.h"
-#include "lcd.h"
 //#include "port.h"
+
+#include "lcd.h"
 #include "font.h"
 /******************************************************
 GND=GND
@@ -60,10 +59,31 @@ void showimage() //ÏÔÊ¾40*40Í¼Æ¬
 	}
 	ref=0;				
 }
+ 
+void main1()
+{ 	
+	Set_All_GPIO_Quasi_Mode;					// Define in Function_define.h
+	BACK_COLOR=WHITE;
+	POINT_COLOR=RED;
+	//Lcd_Init();   		//tft³õÊ¼»¯
+	while(1)
+	{
+		LCD_CS1=0;
+		LCD_DC=1;
+		LCD_REST=0;
+		delayms (200);	
+		LCD_CS1=1;
+		LCD_DC=0;
+		LCD_REST=1;
+		delayms (200);	
+		
+		//delayms (200);	
+    }
+}
 
 
  
-void main1()
+void main()
 { 	
 	Set_All_GPIO_Quasi_Mode;					// Define in Function_define.h
 	BACK_COLOR=WHITE;
@@ -85,14 +105,14 @@ void main1()
 		//Display_GB2312_String('2',0,16, "ÖÐ¾°Ô°µç×Ó");//15x16ºº×Ö
 		//Display_GB2312_String('3',0,40, "ÖÐ¾°Ô°µç×Ó"); //24x24ºº×Ö
 		//Display_GB2312_String('4',16,70, "ÖÐ¾°Ô°"); //32x32ºº×Ö
-		showimage(); //ÏÔÊ¾40*40Í¼Æ¬
+		//showimage(); //ÏÔÊ¾40*40Í¼Æ¬
 		delayms (2000);	
 		LCD_Clear(BLUE); //ÇåÆÁ
     }
 }
 
 
-void main(void) 
+void main2(void) 
 {
 	unsigned char temp;
 	Set_All_GPIO_Quasi_Mode;					// Define in Function_define.h
