@@ -1,7 +1,4 @@
-# STM32Fxxx graphics display drivers
-
-## Layer chart, examples circuits and settings:
-- Lcd_drv.pdf ( https://github.com/RobertoBenjami/stm32_graphics_display_drivers/blob/master/Lcd_drv.pdf )
+# graphics display drivers
 
 ## LCD I/O driver:
 - spi: software SPI, hardware SPI, hardware SPI with DMA
@@ -39,8 +36,8 @@
 - hx8347g (8 bit paralell mode tested)
 
 ## App:
-- LcdSpeedTest: Lcd speed test 
-- TouchCalib: Touchscreen calibration program 
+- LcdSpeedTest: Lcd speed test
+- TouchCalib: Touchscreen calibration program
 - Paint: Arduino paint clone
 - JpgViewer: JPG file viewer from SD card or pendrive
 - AnalogClock: Analog Clock demo
@@ -94,7 +91,3 @@
 - f407vet_app_rtos_fsmc: (stm32f407vet HAL-FreeRtos applications, FSMC, cubemx, truestudio)
 - f407vet_app_fsmc16: (stm32f407vet HAL applications, FSMC 16 bit, cubemx, truestudio)
 - f407zet_app_fsmc16_extsram: (stm32f407zet HAL applications, FSMC 16 bit, external 1MB SRAM, cubemx, truestudio)
-
-## How to adding the SWO support to cheap stlink ?
-https://lujji.github.io/blog/stlink-clone-trace/
-
