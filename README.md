@@ -1,4 +1,4 @@
-﻿# [LCD显示终端](https://github.com/OS-Q/W23)
+﻿# [LCD显示](https://github.com/OS-Q/W23)
 
 [![sites](http://182.61.61.133/link/resources/OSQ.png)](http://www.OS-Q.com)
 
@@ -6,12 +6,13 @@
 
 ### [workspace描述](https://github.com/OS-Q/W23/wiki)
 
-[LCD显示终端](https://github.com/OS-Q/W23)用于支持设备通过USB进行升级
+[LCD显示](https://github.com/OS-Q/W23) 小尺寸显示设备及相关驱动组件
 
 ### [收录资源](https://github.com/OS-Q/)
 
 * [文档](docs/)
 * [工程](project/)
+* [资源](src/)
 
 ### [相关硬件](https://github.com/SoCXin)
 
